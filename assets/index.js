@@ -1,25 +1,36 @@
-const inquirer = require('inquirer');
+const inquirer = require("inquirer");
 
 inquirer
   .prompt([
     {
-      type: 'input',
-      message: 'What is your user name?',
-      name: 'username',
+      type: "input",
+      message: "What is the team managers name?",
+      name: "name",
     },
     {
-      type: 'password',
-      message: 'What is your password?',
-      name: 'password',
+      type: "input",
+      message: "What is the team managers id?",
+      name: "id",
     },
     {
-      type: 'password',
-      message: 'Re-enter password to confirm:',
-      name: 'confirm',
+      type: "email",
+      message: "What is the team managers email",
+      name: "email",
+    },
+    {
+      type: "input",
+      message: "What is the team managers office number",
+      name: "office",
+    },
+    {
+      type: "list",
+      message: "What type of team member would you like to add",
+      name: "type",
+      choices: ["Employee", "Manager", "Engineer", "Intern", "NONE"],
     },
   ])
   .then((response) =>
     response.confirm === response.password
-      ? console.log('Success!')
-      : console.log('You forgot your password already?!')
+      ? console.log("Success!")
+      : console.log("You forgot your password already?!")
   );
